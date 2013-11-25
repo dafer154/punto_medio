@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class VentanaPanel extends JPanel {
-    final int PIXEL_SIZE = 1;
-    final int X_CENTRO = 400;
-    final int Y_CENTRO = 300;
-    final int X_MAX = 800;
-    final int Y_MAX = 600;
+    public final int PIXEL_SIZE = 1;
+    public final int X_CENTRO = 400;
+    public final int Y_CENTRO = 300;
+    public final int X_MAX = 800;
+    public final int Y_MAX = 600;
     
     ArrayList<int[]> puntos;
     

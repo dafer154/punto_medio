@@ -38,7 +38,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -56,6 +55,7 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -109,7 +109,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panelCentralLinea" pref="822" max="32767" attributes="0"/>
+                      <Component id="panelCentralLinea" pref="830" max="32767" attributes="0"/>
                       <Component id="controlesPanel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -155,7 +155,7 @@
                               <Component id="jTFYFinal" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jBPintarLinea" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="265" max="32767" attributes="0"/>
+                              <EmptySpace pref="283" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -210,7 +210,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLXFinal">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="X Final:"/>
+                        <Property name="text" type="java.lang.String" value="X final:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTFYFinal">
@@ -225,7 +225,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLYFinal">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Y inicial:"/>
+                        <Property name="text" type="java.lang.String" value="Y final:"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -269,13 +269,8 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="controlesPanel1" max="32767" attributes="0"/>
-                              <Component id="panelCentralCircu" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="controlesPanel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelCentralCircu" alignment="0" min="-2" pref="830" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -310,10 +305,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLYCentro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="jTFCentro" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTFYCentro" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="jTFRadio" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jBPintarCircu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="572" max="32767" attributes="0"/>
+                              <EmptySpace pref="479" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -325,8 +324,10 @@
                                   <Component id="jLXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTFXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jBPintarCircu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -349,9 +350,9 @@
                         <Property name="text" type="java.lang.String" value="Y:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTFCentro">
+                    <Component class="javax.swing.JTextField" name="jTFYCentro">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFCentroActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFYCentroActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jBPintarCircu">
@@ -360,6 +361,16 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBPintarCircuActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLRadio">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Radio:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFRadio">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFRadioActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -374,7 +385,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="830" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">

@@ -7,6 +7,7 @@
 package puntomedio.gui;
 
 import javax.swing.JOptionPane;
+import puntomedio.PuntoMedioCirculos;
 import puntomedio.PuntoMedioLineas;
 
 /**
@@ -19,16 +20,17 @@ public class MainGUI extends javax.swing.JFrame {
      * Creates new form MainGUI
      * @param ventana
      */
-    VentanaPanel ventanaLinea, ventanaCircuferencia;
-    PuntoMedioLineas puntoMedio;
+    VentanaPanel ventanaLinea, ventanaCirculo;
+    PuntoMedioLineas puntoMedioLinea;
+    PuntoMedioCirculos puntoMediocirculos;
     public MainGUI() {
         ventanaLinea = new VentanaPanel();
-        ventanaLinea.setBounds(10,10,800,600);
-        ventanaCircuferencia = new VentanaPanel();
-        ventanaCircuferencia.setBounds(10,10,800,600);        
+        ventanaLinea.setBounds(10,10,801,601);
+        ventanaCirculo = new VentanaPanel();
+        ventanaCirculo.setBounds(10,10,801,601);        
         initComponents();
         this.panelCentralLinea.add(ventanaLinea);
-        this.panelCentralCircu.add(ventanaCircuferencia);
+        this.panelCentralCircu.add(ventanaCirculo);
     }
 
     /**
@@ -62,8 +64,10 @@ public class MainGUI extends javax.swing.JFrame {
         jLXCentro = new javax.swing.JLabel();
         jTFXCentro = new javax.swing.JTextField();
         jLYCentro = new javax.swing.JLabel();
-        jTFCentro = new javax.swing.JTextField();
+        jTFYCentro = new javax.swing.JTextField();
         jBPintarCircu = new javax.swing.JButton();
+        jLRadio = new javax.swing.JLabel();
+        jTFRadio = new javax.swing.JTextField();
         panelCentralCircu = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,7 +104,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLXFinal.setText("X Final:");
+        jLXFinal.setText("X final:");
 
         jTFYFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +118,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jLYFinal.setText("Y inicial:");
+        jLYFinal.setText("Y final:");
 
         javax.swing.GroupLayout controlesPanelLayout = new javax.swing.GroupLayout(controlesPanel);
         controlesPanel.setLayout(controlesPanelLayout);
@@ -139,7 +143,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addComponent(jTFYFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBPintarLinea)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         controlesPanelLayout.setVerticalGroup(
             controlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +179,7 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCentralLinea, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+            .addComponent(panelCentralLinea, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
             .addComponent(controlesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,9 +206,9 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLYCentro.setText("Y:");
 
-        jTFCentro.addActionListener(new java.awt.event.ActionListener() {
+        jTFYCentro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFCentroActionPerformed(evt);
+                jTFYCentroActionPerformed(evt);
             }
         });
 
@@ -212,6 +216,14 @@ public class MainGUI extends javax.swing.JFrame {
         jBPintarCircu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBPintarCircuActionPerformed(evt);
+            }
+        });
+
+        jLRadio.setText("Radio:");
+
+        jTFRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFRadioActionPerformed(evt);
             }
         });
 
@@ -227,10 +239,14 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLYCentro)
                 .addGap(3, 3, 3)
-                .addComponent(jTFCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jTFYCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLRadio)
+                .addGap(2, 2, 2)
+                .addComponent(jTFRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBPintarCircu)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
         controlesPanel1Layout.setVerticalGroup(
             controlesPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,8 +256,10 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(jLXCentro)
                     .addComponent(jTFXCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLYCentro)
-                    .addComponent(jTFCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBPintarCircu))
+                    .addComponent(jTFYCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBPintarCircu)
+                    .addComponent(jLRadio)
+                    .addComponent(jTFRadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -251,7 +269,7 @@ public class MainGUI extends javax.swing.JFrame {
         panelCentralCircu.setLayout(panelCentralCircuLayout);
         panelCentralCircuLayout.setHorizontalGroup(
             panelCentralCircuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 830, Short.MAX_VALUE)
         );
         panelCentralCircuLayout.setVerticalGroup(
             panelCentralCircuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,11 +280,8 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(controlesPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelCentralCircu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(controlesPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelCentralCircu, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +298,6 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -296,6 +310,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .addGap(370, 370, 370)
                         .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,8 +350,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void jBPintarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPintarLineaActionPerformed
         // TODO add your handling code here:
-        try{
-            puntoMedio = new PuntoMedioLineas();
+        try{            
             int x0 = Integer.parseInt(jTFXIni.getText());
             int y0 = Integer.parseInt(jTFYIni.getText());
             int x1 = Integer.parseInt(jTFXFinal.getText());
@@ -345,7 +359,8 @@ public class MainGUI extends javax.swing.JFrame {
                 && y0>=(ventanaLinea.Y_CENTRO*-1) && y0<=ventanaLinea.Y_CENTRO
                 && x1>=(ventanaLinea.X_CENTRO*-1) && x1<=ventanaLinea.X_CENTRO
                 && y1>=(ventanaLinea.Y_CENTRO*-1) && y1<=ventanaLinea.Y_CENTRO){
-                puntoMedio.puntoMedio(x0, y0, x1, y1, ventanaLinea);
+                puntoMedioLinea = new PuntoMedioLineas(ventanaLinea);
+                puntoMedioLinea.puntoMedio(x0, y0, x1, y1);
                 ventanaLinea.repaint();
             }else{
                 JOptionPane.showMessageDialog(this, "Recuerde que solo puede ingresar números: \n"
@@ -371,26 +386,28 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFXCentroActionPerformed
 
-    private void jTFCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCentroActionPerformed
+    private void jTFYCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFYCentroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFCentroActionPerformed
+    }//GEN-LAST:event_jTFYCentroActionPerformed
 
     private void jBPintarCircuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPintarCircuActionPerformed
         // TODO add your handling code here:
-        try{
-            //Instanciar algoritmo de circunferencia
-            int xCentroCirc = Integer.parseInt(jTFXIni.getText());
-            int yCentroCirc = Integer.parseInt(jTFYIni.getText());
-            if(xCentroCirc>=(ventanaCircuferencia.X_CENTRO*-1) 
-                    && xCentroCirc<=ventanaCircuferencia.X_CENTRO
-                && yCentroCirc>=(ventanaCircuferencia.Y_CENTRO*-1) 
-                    && yCentroCirc<=ventanaCircuferencia.Y_CENTRO){
-                //Lllamar algoritmo punto medio para circunferencias
-                ventanaCircuferencia.repaint();
+        try{            
+            int xCentroCirc = Integer.parseInt(jTFXCentro.getText());
+            int yCentroCirc = Integer.parseInt(jTFYCentro.getText());
+            int radio = Integer.parseInt(jTFRadio.getText());
+            if(xCentroCirc>=(ventanaCirculo.X_CENTRO*-1) 
+                    && xCentroCirc<=ventanaCirculo.X_CENTRO
+                && yCentroCirc>=(ventanaCirculo.Y_CENTRO*-1) 
+                    && yCentroCirc<=ventanaCirculo.Y_CENTRO
+                    && radio >= 0 && radio <= ventanaCirculo.X_CENTRO){
+                puntoMediocirculos = new PuntoMedioCirculos(ventanaCirculo, xCentroCirc, yCentroCirc);
+                puntoMediocirculos.puntoMedioCirculos(radio);
+                ventanaCirculo.repaint();
             }else{
                 JOptionPane.showMessageDialog(this, "Recuerde que solo puede ingresar números: \n"
-                    + "\tentre " + (ventanaCircuferencia.X_CENTRO*-1) +" y " + ventanaCircuferencia.X_CENTRO +" para X y \n"
-                    + "\tentre "+ (ventanaCircuferencia.Y_CENTRO*-1) +" y " + ventanaCircuferencia.Y_CENTRO +" para Y.", null,
+                    + "\tentre " + (ventanaCirculo.X_CENTRO*-1) +" y " + ventanaCirculo.X_CENTRO +" para X y \n"
+                    + "\tentre "+ (ventanaCirculo.Y_CENTRO*-1) +" y " + ventanaCirculo.Y_CENTRO +" para Y.", null,
                     JOptionPane.ERROR_MESSAGE);
             }
         }catch(NumberFormatException nfe){
@@ -398,6 +415,10 @@ public class MainGUI extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBPintarCircuActionPerformed
+
+    private void jTFRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -439,6 +460,7 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel controlesPanel1;
     private javax.swing.JButton jBPintarCircu;
     private javax.swing.JButton jBPintarLinea;
+    private javax.swing.JLabel jLRadio;
     private javax.swing.JLabel jLXCentro;
     private javax.swing.JLabel jLXFinal;
     private javax.swing.JLabel jLXIni;
@@ -451,10 +473,11 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTFCentro;
+    private javax.swing.JTextField jTFRadio;
     private javax.swing.JTextField jTFXCentro;
     private javax.swing.JTextField jTFXFinal;
     private javax.swing.JTextField jTFXIni;
+    private javax.swing.JTextField jTFYCentro;
     private javax.swing.JTextField jTFYFinal;
     private javax.swing.JTextField jTFYIni;
     private javax.swing.JTabbedPane jTabbedPane1;
